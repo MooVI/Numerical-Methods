@@ -13,7 +13,7 @@
 #include <time.h>
 #include <math.h>
  #include "mtrand.h"
-#include <gsl/gsl_qrng.h>
+//#include <gsl/gsl_qrng.h>
 
 
   
@@ -26,27 +26,27 @@ namespace NumMethod {
    
 
     
-    template<int nDim>
-    class Sobol {
-        long long int lseed;
-        int seed;
-        gsl_qrng * q; 
-        unsigned long getseed (){
-      time_t seconds;
-      time (&seconds); 
-      return (unsigned long) seconds;
-    } 
-        public:
-            void operator ()(double []);
-            Sobol (){q = gsl_qrng_alloc (gsl_qrng_sobol, nDim);}
-            ~Sobol(){gsl_qrng_free(q);}
-    };
-    
-    template<int nDim> inline
-    void Sobol<nDim>::operator ()(double out []){
-        gsl_qrng_get(q, out);
-    }
-    
+//    template<int nDim>
+//    class Sobol {
+//        long long int lseed;
+//        int seed;
+//        gsl_qrng * q; 
+//        unsigned long getseed (){
+//      time_t seconds;
+//      time (&seconds); 
+//      return (unsigned long) seconds;
+//    } 
+//        public:
+//            void operator ()(double []);
+//            Sobol (){q = gsl_qrng_alloc (gsl_qrng_sobol, nDim);}
+//            ~Sobol(){gsl_qrng_free(q);}
+//    };
+//    
+//    template<int nDim> inline
+//    void Sobol<nDim>::operator ()(double out []){
+//        gsl_qrng_get(q, out);
+//    }
+//    
      
     
             

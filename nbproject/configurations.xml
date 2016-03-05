@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<configurationDescriptor version="84">
+<configurationDescriptor version="95">
   <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
@@ -68,8 +68,9 @@
   <confs>
     <conf name="Debug" type="3">
       <toolsSet>
-        <remote-sources-mode>LOCAL_SOURCES</remote-sources-mode>
         <compilerSet>default</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
       </toolsSet>
       <compileType>
         <ccTool>
@@ -83,11 +84,85 @@
         <archiverTool>
         </archiverTool>
       </compileType>
+      <item path="../../NumericalMethods/NumericalMethods/Integrator.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="1DOptimisation.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="1DRootFinding.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Column.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Cyclic.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="DEIntegrator.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="DESolvers.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="DESolversInc.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Differentiation.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="FixedSteppers.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ForLoop.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="HermitePoly.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Interrupts.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Lattice.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Mod.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="MonteCarlo.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="MonteCarloIntegration.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="MultiSolvers.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Network.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Numerovlike.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="PRKMethods.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Polynomial.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="PolynomialInterpolation.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="RKMethods.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="RKNMethods.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Random.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="SamplingForLoops.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Statistics.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="StdVectorMath.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="StdVectorMath_noc11.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Useful.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="VarSteppers.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="mtrand.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="mtrand.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="sobol.hpp" ex="false" tool="3" flavor2="0">
+      </item>
     </conf>
     <conf name="Release" type="3">
       <toolsSet>
-        <remote-sources-mode>LOCAL_SOURCES</remote-sources-mode>
         <compilerSet>default</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
       </toolsSet>
       <compileType>
         <cTool>
@@ -111,6 +186,79 @@
         <archiverTool>
         </archiverTool>
       </compileType>
+      <item path="../../NumericalMethods/NumericalMethods/Integrator.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="1DOptimisation.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="1DRootFinding.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Column.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Cyclic.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="DEIntegrator.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="DESolvers.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="DESolversInc.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Differentiation.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="FixedSteppers.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ForLoop.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="HermitePoly.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Interrupts.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Lattice.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Mod.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="MonteCarlo.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="MonteCarloIntegration.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="MultiSolvers.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Network.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Numerovlike.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="PRKMethods.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Polynomial.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="PolynomialInterpolation.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="RKMethods.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="RKNMethods.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Random.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="SamplingForLoops.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Statistics.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="StdVectorMath.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="StdVectorMath_noc11.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Useful.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="VarSteppers.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="mtrand.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="mtrand.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="sobol.hpp" ex="false" tool="3" flavor2="0">
+      </item>
     </conf>
   </confs>
 </configurationDescriptor>
