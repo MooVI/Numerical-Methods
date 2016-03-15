@@ -121,11 +121,45 @@ namespace NumMethod{
             
         };    
 
+    
+        //Safe secant applies secant method but checks to make sure step not too large
+    struct SafeSecant {
+        template <typename FunctPtr, typename T, int maxStep = 100 >
+                T operator () (FunctPtr&& f, const T& guess, const T& initialStep, const T& desAcc, const T& maxRelInc=1000){
+            T x1 = guess;
+            T x2 = guess + initialStep;
+            T y1 = f(x1);
+            T y2 = f(x2);
+            //Orient so that y2 is closer to root.
+            if (fabs(y2) > fabs(y1)) {
+                std::swap(y1, y2);
+                std::swap(x1, x2);
+            }
+            int i = 0;
+            T dx = initialStep;
+            while (i < maxStep) {
+                T newstep = (x1 - x2) * y2 / (y2 - y1);
+                dx = sign(newstep, dx);
+                dx = minAbs(newstep, maxRelInc*dx);
+                x1 = x2;
+                y1 = y2;
+                x2 += dx;
+                y2 = f(x2);
+                if (fabs(dx)<desAcc) return x2;
+                i++;
+                
+            }
+            std::cerr<<"Secant: Maximum number of iterations reached!"<<std::endl;
+            return NAN;
+        } 
+        };
+        
+        
     //From an initial guess and an idea of appropriate length scales 
     //(initialstep), find a root using the secant method  
     struct Secant {
         template <typename FunctPtr, typename T, int maxStep = 100 >
-                T operator () (FunctPtr& f, const T& guess, const T& initialStep, const T& desAcc){
+                T operator () (FunctPtr&& f, const T& guess, const T& initialStep, const T& desAcc){
             T x1 = guess;
             T x2 = guess + initialStep;
             T y1 = f(x1);
