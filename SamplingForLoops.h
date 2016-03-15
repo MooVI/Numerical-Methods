@@ -21,14 +21,70 @@ struct ForLoopParams {
     
  };
 
+ template<typename T>
+ class GetXFor{
+     std::vector<T> x;
+     public:
+ bool operator ()(T value, int i){
+     x.push_back(value);
+     return true;
+ }
+ 
+ std::vector<T> get_x(){
+     return x;
+ }
+     
+ };
+ 
+ struct Range {
+    template<typename FunctPtr>
+    static void loop(FunctPtr& f, int begin, int exend, int step =1); 
+    
+    static inline std::vector<int> get_x(int begin, int exend, int step =1); 
+ 
+ };
+ 
+ template<typename FunctPtr>
+ void Range::loop(FunctPtr& f, int begin, int exend, int step){
+     ForLoopProgress<int> prog (begin, exend);
+     for (int i =0, x=begin; x<exend ;i++, x+=step){
+         prog(i);
+         if (f (x,i)) break;        
+     }
+ }
+ 
+ inline std::vector<int> Range::get_x(int begin, int exend, int step){
+     std::vector<int> xs((exend-begin)/step);
+     for (int i =0, x=begin; x<exend ;i++, x+=step){
+         xs[i] = x;       
+     }
+     return xs;
+ }
+ 
+ 
+ 
 struct EqualSpaceFor {
     
     template<typename T,typename FunctPtr>
     static void loop(FunctPtr& f,const ForLoopParams<T>& params);
     
-    
+    template<typename T>
+    static std::vector<T> get_x(const ForLoopParams<T>& params);
     
  };
+
+ template<typename T>
+ std::vector<T> EqualSpaceFor::get_x(const ForLoopParams<T>& params){
+    std::vector<T> xvec (params.numPoints);        
+     T step = (params.end-params.start)/((T) (params.numPoints -1));
+     T x = params.start;
+     for (int i =0;i<params.numPoints;i++){
+         xvec[i] = x;
+         x+=step;
+     }
+     return xvec;
+ }
+ 
 
  template<typename T,typename FunctPtr>
  void EqualSpaceFor::loop(FunctPtr& f,const ForLoopParams<T>& params){
