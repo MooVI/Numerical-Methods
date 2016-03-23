@@ -13,6 +13,8 @@
 
 namespace NumMethod{
 
+#include <cstdlib>
+    
 template<typename T>
 struct ForLoopParams {
     int numPoints;
@@ -20,6 +22,17 @@ struct ForLoopParams {
     T end;
     
  };
+ 
+ int default_argv_for_loop = {1,2,3};
+ 
+ template<typename T>
+ ForLoopParams<T> get_for_from_cmd(char** argv, int positions[3] = default_argv_for_loop){
+     ForLoopParams<T> ret;
+     ret.numPoints = atoi(argv[positions[0]]);
+     ret.start = atof(argv[positions[1]]);
+     ret.end = atof(argv[positions[2]]);
+     return ret;
+ }
 
  template<typename T>
  class GetXFor{
