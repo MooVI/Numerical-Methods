@@ -23,10 +23,10 @@ struct ForLoopParams {
     
  };
  
- int default_argv_for_loop = {1,2,3};
+ int default_argv_for_loop[] = {1,2,3};
  
  template<typename T>
- ForLoopParams<T> get_for_from_cmd(char** argv, int positions[3] = default_argv_for_loop){
+ ForLoopParams<T> get_for_from_cmd(char** argv, int positions[] = default_argv_for_loop){
      ForLoopParams<T> ret;
      ret.numPoints = atoi(argv[positions[0]]);
      ret.start = atof(argv[positions[1]]);
