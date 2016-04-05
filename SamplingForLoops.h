@@ -39,12 +39,12 @@ struct ForLoopParams {
      std::vector<T> x;
      public:
  bool operator ()(T value, int i){
-     x.push_back(value);
-     return true;
+     this->x.push_back(value);
+     return false;
  }
  
  std::vector<T> get_x(){
-     return x;
+     return this->x;
  }
      
  };
