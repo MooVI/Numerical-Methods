@@ -46,6 +46,10 @@ struct ForLoopParams {
  std::vector<T> get_x(){
      return this->x;
  }
+ 
+ void clear(){
+     x.clear();
+ }
      
  };
  
