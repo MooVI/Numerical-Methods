@@ -175,5 +175,91 @@ RunningStats<T>& RunningStats<T>::operator+=(const RunningStats<T>& rhs)
 }
 
 
+template <typename T>
+class WeightedRunningStats
+{
+public:
+    WeightedRunningStats();
+    template<typename A, typename B>
+    WeightedRunningStats(const A& array, const B& weights);
+    void Clear();
+    void Push(T x, T w);
+    long long NumDataValues() const;
+    T TotalWeight() const;
+    T Mean() const;
+    T Variance() const;
+    T StandardDeviation() const;
+
+private:
+    long long n;
+    T M1, M2, W;
+};
+
+template <typename T>
+WeightedRunningStats<T>::WeightedRunningStats() 
+{
+    Clear();
+}
+
+template <typename T>
+template<typename A, typename B>
+WeightedRunningStats<T>::WeightedRunningStats(const A& array, const B& weights) 
+{
+    Clear();
+    for (int i=0; i<array.size();i++) this->Push(array[i], weights[i]);
+}
+
+template <typename T>
+void WeightedRunningStats<T>::Clear()
+{
+    n = 0;
+    M1 = M2 = 0.0;
+    W = 0.0;
+}
+
+template <typename T>
+void WeightedRunningStats<T>::Push(T x, T w)
+{
+    T delta, delta_n, term1;
+    T Wold = W;
+    n++;
+    W += w;
+    delta = x - M1;
+    delta_n = w*delta / W;
+    term1 = delta * delta_n * Wold;
+    M1 += delta_n;
+    M2 += term1;
+}
+
+template <typename T>
+long long WeightedRunningStats<T>::NumDataValues() const
+{
+    return n;
+}
+
+template <typename T>
+T WeightedRunningStats<T>::TotalWeight() const
+{
+    return W;
+}
+
+template <typename T>
+T WeightedRunningStats<T>::Mean() const
+{
+    return M1;
+}
+
+template <typename T>
+T WeightedRunningStats<T>::Variance() const
+{
+    return M2/(W);
+}
+
+template <typename T>
+T WeightedRunningStats<T>::StandardDeviation() const
+{
+    return sqrt( Variance() );
+}
+
 }
 #endif	/* STATISTICS_H */
